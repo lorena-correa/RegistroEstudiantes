@@ -16,11 +16,13 @@ namespace estudiante
             {
                 string nombre = txtNombre.Text.Trim();
 
+                //Validar que el campo sea númerico
                 if (!int.TryParse(txtEdad.Text, out int edad))
                 {
                     MessageBox.Show("La edad debe ser numérica.");
                     return;
                 }
+                //Validar que el campo sea númerico
 
                 if (!double.TryParse(txtPromedio.Text, out double promedio))
                 {
@@ -28,7 +30,7 @@ namespace estudiante
                     return;
                 }
 
-                // Validar duplicado
+                // Validar registros duplicado
                 if (estudiantes.Any(e => e.Nombre.Equals(nombre, StringComparison.OrdinalIgnoreCase)))
                 {
                     MessageBox.Show("El estudiante ya existe.");
@@ -60,8 +62,7 @@ namespace estudiante
                 return;
             }
 
-            RegistroE encontrado = estudiantes
-                .FirstOrDefault(e => e.Nombre.Equals(nombreBuscar, StringComparison.OrdinalIgnoreCase));
+            RegistroE encontrado = estudiantes.FirstOrDefault(e => e.Nombre.Equals(nombreBuscar, StringComparison.OrdinalIgnoreCase));
 
             if (encontrado != null)
             {

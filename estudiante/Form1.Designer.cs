@@ -162,7 +162,7 @@
             // 
             lblResultado.AutoSize = true;
             lblResultado.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblResultado.Location = new Point(179, 349);
+            lblResultado.Location = new Point(175, 352);
             lblResultado.Name = "lblResultado";
             lblResultado.Size = new Size(82, 19);
             lblResultado.TabIndex = 12;
