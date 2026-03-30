@@ -49,5 +49,28 @@ namespace estudiante
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string nombreBuscar = txtBuscar.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(nombreBuscar) || !nombreBuscar.All(c => char.IsLetter(c) || c == ' '))
+            {
+                MessageBox.Show("Ingrese un nombre válido.");
+                return;
+            }
+
+            RegistroE encontrado = estudiantes
+                .FirstOrDefault(e => e.Nombre.Equals(nombreBuscar, StringComparison.OrdinalIgnoreCase));
+
+            if (encontrado != null)
+            {
+                lblResultado.Text = encontrado.ToString();
+            }
+            else
+            {
+                lblResultado.Text = "Estudiante no encontrado.";
+            }
+        }
     }
 }
